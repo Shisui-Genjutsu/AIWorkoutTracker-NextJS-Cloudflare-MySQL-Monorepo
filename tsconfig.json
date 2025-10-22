@@ -20,6 +20,6 @@
 
     // Reference to the frontend app (e.g., a web client).
     // Like backend, it can import from shared and utils with full type safety.
-    { "path": "./apps/sports-utility-app" }
+    { "path": "./apps/frontend" }
   ]
 }
