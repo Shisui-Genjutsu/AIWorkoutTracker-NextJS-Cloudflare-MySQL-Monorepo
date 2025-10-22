@@ -1,0 +1,18 @@
+{
+  "name": "ai-workout-tracker",
+  "version": "1.0.0",
+  "author": "Bhaskar Guthula",
+  "license": "ISC",
+  "private": true,
+  "packageManager": "pnpm@10.18.3",
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "deploy": "turbo deploy",
+    "cf-typegen": "turbo cf-typegen"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.8"
+  }
+}

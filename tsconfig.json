@@ -1,0 +1,25 @@
+{
+  // "files" is an array of files to include in the root project.
+  // In a monorepo, we leave this empty because the root doesn't contain code directly.
+  "files": [],
+
+  // "references" lists all the TypeScript projects (packages/apps) in the monorepo.
+  // This enables TypeScript Project References, which are crucial in a monorepo setup.
+  // Each reference points to a package or app that has its own tsconfig.json.
+  "references": [
+    // Reference to the utils package (e.g., shared utility functions/types).
+    // This allows other packages/apps to depend on and use types from utils.
+    { "path": "./packages/utils" },
+
+    // Reference to the shared package (e.g., common types, interfaces, or code shared across the monorepo).
+    { "path": "./packages/shared" },
+
+    // Reference to the backend app (e.g., an API or server application).
+    // This app can depend on shared and utils, and TypeScript will build dependencies in the correct order.
+    { "path": "./apps/backend" },
+
+    // Reference to the frontend app (e.g., a web client).
+    // Like backend, it can import from shared and utils with full type safety.
+    { "path": "./apps/sports-utility-app" }
+  ]
+}
