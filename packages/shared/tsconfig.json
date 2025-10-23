@@ -1,0 +1,24 @@
+{
+  // Inherit base TypeScript configuration from the root-level tsconfig.
+  // This keeps compiler settings consistent across all packages and apps in the monorepo.
+  "extends": "../../tsconfig.base.json",
+
+  "compilerOptions": {
+    // Set the root directory for source files.
+    // All TypeScript files to be compiled are expected to be inside the "src" folder.
+    "rootDir": "src",
+
+    // Set the output directory for compiled JavaScript and type declaration files.
+    // Keeps build artifacts separate from source code for better organization.
+    "outDir": "build",
+
+    // Specify where to save incremental build information.
+    // Storing this outside the package (in a shared "build" folder) enables faster rebuilds
+    // and avoids conflicts between packages in the monorepo.
+    "tsBuildInfoFile": "../../build/utils.tsbuildinfo"
+  },
+
+  // Only include files from the "src" directory for compilation.
+  // This ensures only your source code is compiled, not tests or build outputs.
+  "include": ["src/**/*"]
+}
