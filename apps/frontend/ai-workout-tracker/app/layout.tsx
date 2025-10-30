@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/providers/theme-providers"
+import { ClerkProvider } from "@clerk/nextjs"
+import Navbar from "@/components/Navbar"
+import { dark } from "@clerk/themes"
+import AppDock from "./AppDock"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,11 +28,31 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ClerkProvider
+          publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+          appearance={{
+            theme: dark
+          }}
+        >
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <div className="relative h-screen overflow-hidden">
+              {/* Navbar removed; using bottom Dock */}
+              <div className="h-full overflow-y-auto py-14 mx-auto max-w-3xl">
+                {children}
+              </div>
+              <AppDock />
+            </div>
+          </ThemeProvider>
+        </ClerkProvider>
       </body>
     </html>
   );
