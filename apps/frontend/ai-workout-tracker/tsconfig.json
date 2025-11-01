@@ -19,13 +19,16 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@ai-workout-tracker/ui": ["../../packages/ui/build/index.d.ts"],
+      "@ai-workout-tracker/ui/*": ["../../packages/ui/src/*"]
     },
     "types": [
         "./cloudflare-env.d.ts",
         "node"
-    ]
+    ],
+    "baseUrl": "."
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "types/**/*.d.ts", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }

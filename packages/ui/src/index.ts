@@ -2,4 +2,8 @@ export * from "./components/button";
 export * from "./components/dropdown-menu";
 export * from "./components/switch";
 export * from "./components/sidebar";
+export * from "./components/tabs";
+export * from "./components/badge";
+export * from "./components/pricing-tab";
+export * from "./components/animated-tabs";
 export * from "./lib/utils";

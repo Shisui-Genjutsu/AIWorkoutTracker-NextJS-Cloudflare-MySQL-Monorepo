@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/components/providers/theme-providers"
 import { ClerkProvider } from "@clerk/nextjs"
 import Navbar from "@/components/Navbar"
 import { dark } from "@clerk/themes"
-import AppDock from "./AppDock"
+import AppDock from "../components/AppDock"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,9 +44,8 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <div className="relative h-screen overflow-hidden">
-              {/* Navbar removed; using bottom Dock */}
-              <div className="h-full overflow-y-auto py-14 mx-auto max-w-3xl">
+            <div className="relative h-dvh overflow-hidden">
+              <div className="h-full overflow-y-auto py-14 pb-24 mx-auto max-w-3xl">
                 {children}
               </div>
               <AppDock />
